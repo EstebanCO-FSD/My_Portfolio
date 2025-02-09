@@ -1,0 +1,17 @@
+.construction-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #242424;
+    color: white;
+}
+
+.construction-image {
+    max-width: 400px;
+    width: 20%;
+    height: auto;
+    margin-bottom: 20px;
+}

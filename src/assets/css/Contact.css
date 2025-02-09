@@ -1,0 +1,40 @@
+.contact-container {
+    display: flex;
+    height: 100vh;
+}
+
+.contact-container-left {
+    flex: 1;
+    background-color: #1e293b;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 50px;
+}
+
+.contact-container-rigth {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+.contact-btn {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.contact-btn:hover {
+    filter: drop-shadow(0 0 20px rgb(17, 21, 92))
+            drop-shadow(0 0 40px rgba(5, 11, 120, 0.5));
+}
