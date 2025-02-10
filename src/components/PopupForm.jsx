@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../assets/css/PopupForm.css';
 
 function PopupForm({ closePopup }) {
+    let { t } = useTranslation();
+
     const [message, setMessage] = useState('');
     const maxChars = 500;
 
-    let [isLightMode, setIsLightMode] = useState(localStorage.getItem("theme") === "ligth");
+    let [isLightMode, setIsLightMode] = useState(localStorage.getItem("theme") === "light");
 
     const handleChange = (e) => {
         if (e.target.value.length <= maxChars) {
@@ -34,38 +37,38 @@ function PopupForm({ closePopup }) {
         <div className="popup-overlay">
             <div className="popup-content">
                 <button className="close-btn" onClick={closePopup}>✖</button>
-                <h2>📩 Envíame un mensaje</h2>
+                <h2>{t('popup_form_h2')}</h2>
                 <form>
                     <div className="form-row">
                         <div className="form-group">
-                            <label>Nombre</label>
-                            <input type="text" placeholder="Tu nombre" required />
+                            <label>{t('popup_label_name')}</label>
+                            <input type="text" placeholder={t('popup_placeholder_name')} required />
                         </div>
                         <div className="form-group">
-                            <label>Correo</label>
-                            <input type="email" placeholder="Tu correo" required />
+                            <label>{t('popup_label_email')}</label>
+                            <input type="email" placeholder={t('popup_placeholder_email')} required />
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <label>Asunto</label>
-                        <input type="text" placeholder="Asunto" required />
+                        <label>{t('popup_label_subject')}</label>
+                        <input type="text" placeholder={t('popup_label_subject')} required />
                     </div>
 
                     <div className="form-group">
-                        <label>Mensaje</label>
+                        <label>{t('popup_label_message')}</label>
                         <textarea
-                            placeholder="Escribe tu mensaje..."
+                            placeholder={t('popup_placeholder_message')}
                             value={message}
                             onChange={handleChange}
                             maxLength={maxChars}
                             required
                         ></textarea>
-                        <p className="char-count">{message.length} / {maxChars} caracteres</p>
+                        <p className="char-count">{message.length} / {maxChars} {t('popup_character_limit')}</p>
                     </div>
 
                     <div className="form-footer">
-                        <button type="submit">Enviar</button>
+                        <button type="submit">{t('popup_btn_send')}</button>
                     </div>
                 </form>
             </div>

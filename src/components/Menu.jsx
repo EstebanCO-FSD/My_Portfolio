@@ -1,32 +1,47 @@
 import { Link, useLocation } from 'react-router-dom';
 import { LuLanguages, LuSun, LuMoon } from 'react-icons/lu';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../assets/css/Menu.css';
 
-export default function Menu() {
+export default function Menu({ profileRef, educationRef, skillsRef }) {
     let location = useLocation();
     let currentPath = location.pathname;
+    let { t, i18n } = useTranslation();
     
     const getInitialTheme = () => {
-        return localStorage.getItem('theme') === 'ligth';
+        return localStorage.getItem('theme') === 'light';
     };
 
     const [isLightMode, setIsLightMode] = useState(getInitialTheme);
 
     useEffect(() => {
         if (isLightMode) {
-            document.body.classList.add('ligth-mode');
+            document.body.classList.add('light-mode');
         } else {
-            document.body.classList.remove('ligth-mode');
+            document.body.classList.remove('light-mode');
         }
     }, [isLightMode]);
     
     const toggleTheme = () => {
         const newTheme = !isLightMode;
         setIsLightMode(newTheme);
-        localStorage.setItem('theme', newTheme ? 'ligth' : 'dark');
+        localStorage.setItem('theme', newTheme ? 'light' : 'dark');
         window.dispatchEvent(new Event("themeChange"));
-    };    
+    };
+
+    const toggleLanguage = () => {
+        const newLanguage = i18n.language === 'es' ? 'en' : 'es';
+        i18n.changeLanguage(newLanguage);
+        localStorage.setItem('language', newLanguage);
+    };
+
+    const scrollToSection = (ref, event) => {
+        event.preventDefault();
+        if (ref && ref.current) {
+            ref.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
         <nav className="menu-bar">
@@ -37,15 +52,29 @@ export default function Menu() {
             </div>
 
             <ul className="menu-nav">
-                {currentPath !== "/" && <li><Link to="/">Inicio</Link></li>}
-                {currentPath !== "/Projects" && <li><Link to="/Projects">Proyectos</Link></li>}
-                {currentPath !== "/Contact" && <li><Link to="/Contact">Contacto</Link></li>}
+                {currentPath !== "/Projects" && currentPath !== "/Contact" && (
+                    <>
+                        <li><a href="#" onClick={(e) => scrollToSection(profileRef, e)}>{t('profile')}</a></li>
+                        <li><a href="#" onClick={(e) => scrollToSection(educationRef, e)}>{t('education')}</a></li>
+                        <li><a href="#" onClick={(e) => scrollToSection(skillsRef, e)}>{t('skills')}</a></li>
+
+                        <li><span className="menu-separator"></span></li>
+                    </>
+                )}
+
+                {currentPath !== "/" && <li><Link to="/">{t('home')}</Link></li>}
+                {currentPath !== "/Projects" && <li><Link to="/Projects">{t('projects')}</Link></li>}
+                {currentPath !== "/Contact" && <li><Link to="/Contact">{t('contact')}</Link></li>}
 
                 <li><span className="menu-separator"></span></li>
 
-                <li><Link to="#"><LuLanguages size={20} /></Link></li>
                 <li>
-                    <Link to="#" onClick={toggleTheme}>
+                    <Link to="#" onClick={toggleLanguage} title={t('changeLanguage')}>
+                        <LuLanguages size={20} t/>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="#" onClick={toggleTheme} title={t('changeTheme')}>
                         {isLightMode ? <LuSun size={20} /> : <LuMoon size={20} />}
                     </Link>
                 </li>

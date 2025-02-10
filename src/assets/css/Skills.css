@@ -1,0 +1,8 @@
+.skills-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    padding: 70px 0 70px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
