@@ -36,11 +36,11 @@ function Profile() {
 
                     <div className="profile-links">
                         <a href="https://www.linkedin.com/in/esteban-jose-castellar-ochoa" target="_blank" rel="noopener noreferrer">
-                            <FaLinkedin className="icon" size={35} />
+                            <FaLinkedin className="icon" size={35} title="LinkedIn" />
                         </a>
 
                         <a href="https://github.com/EstebanCO-FSD" target="_blank" rel="noopener noreferrer">
-                            <FaGithub className="icon" size={35} />
+                            <FaGithub className="icon" size={35} title="github" />
                         </a>
                     </div>
                 </div>

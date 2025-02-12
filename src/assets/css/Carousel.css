@@ -1,0 +1,51 @@
+/* Contenedor principal del carrusel */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+/* Agrega efecto de desvanecimiento en los bordes */
+.carousel-wrapper::before,
+.carousel-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    /* Ajusta el ancho del efecto de desvanecimiento */
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.carousel-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--background-color), rgba(255, 255, 255, 0));
+}
+
+.carousel-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--background-color), rgba(255, 255, 255, 0));
+}
+
+.carousel-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ajustes de las imágenes dentro del slider */
+.carousel-image {
+    width: 105px;
+    height: 105px;
+    object-fit: contain;
+    padding: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto de zoom al pasar el mouse sobre una imagen */
+.carousel-image:hover {
+    transform: scale(1.1);
+}

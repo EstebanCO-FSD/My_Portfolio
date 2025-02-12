@@ -22,7 +22,7 @@ function Footer() {
                 {isLightMode ? <img src="/logo-cap-b.png" alt="Logo" /> : <img src="/logo-cap-w.png" alt="Logo" />}
             </div>
 
-            <p style={{ fontSize: '12px' }}>Última actualización 📅 ( 09 de Feb 2025 )</p>
+            <p style={{ fontSize: '12px' }}>Última actualización 📅 ( 10 de Feb 2025 )</p>
         </div>
     )
 }

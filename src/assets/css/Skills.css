@@ -1,8 +1,61 @@
 .skills-container {
     display: flex;
-    width: 100%;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+    padding: 70px 0;
+}
+
+.skills-section {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
-    padding: 70px 0 70px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skills-section {
+    flex-direction: row;
+}
+
+.left-text {
+    width: 50%;
+    text-align: left;
+    padding: 20px;
+}
+
+.right-text {
+    width: 50%;
+    text-align: right;
+    padding: 20px;
+}
+
+.carousel-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.carousel-item {
+    min-width: 100px;
+    margin: 0 10px;
+    opacity: 0.8;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.carousel-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }

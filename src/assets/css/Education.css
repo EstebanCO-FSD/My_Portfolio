@@ -1,7 +1,146 @@
 .education-container {
     display: flex;
-    width: 100%;
     flex-direction: column;
-    padding: 70px 0 70px 0;
+    align-items: center;
+    width: 100%;
+    padding: 50px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline {
+    width: 92%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.timeline-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 15px 30px 15px 30px;
+}
+
+.timeline-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 15px 30px 15px 30px;
+}
+
+.snake-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.timeline-item {
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 8px;
+    position: relative;
+    width: 40%;
+    border: 2px solid rgba(0, 84, 220, 0.938);
+    box-shadow: 0 0 10px rgba(0, 84, 220, 0.938);
+}
+
+.timeline-item.right {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.timeline-item.left {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    text-align: left;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 84, 220, 0.938);
+    border-radius: 50%;
+    top: 50%;
+}
+
+.timeline-item.right::before {
+    left: -15px;
+}
+
+.timeline-item.left::before {
+    right: -15px;
+}
+
+.snake-timeline::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    background-color: rgba(0, 84, 220, 0.938);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cert-button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: rgba(0, 84, 220, 0.938);
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 10px;
+}
+
+.cert-button:hover {
+    background-color:rgba(39, 121, 255, 0.938);
+    color: white;
+}
+
+.expand-button {
+    margin-top: 10px;
+    background: transparent !important;
+    border: 1px solid rgba(0, 84, 220, 0.938);
+    padding: 5px 10px;
+    cursor: pointer;
+    color: rgba(0, 84, 220, 0.938) !important;
+    border-radius: 3px;
+}
+
+.expand-button:hover {
+    background: rgba(0, 84, 220, 0.938) !important;
+    color: white !important;
+}
+
+.name {
+    font-weight: 400;    
+}
+
+.education_level {
+    font-size: 15px
+}
+
+.year {
+    font-size: small;
+}
+
+.timeline-left > h3,
+.timeline-right > h3 {
+    margin-block-end: 3em;
+}
+
+.note {
+    text-align: center;
+    margin: 70px 250px 0 250px;
 }

@@ -70,7 +70,7 @@ export default function Menu({ profileRef, educationRef, skillsRef }) {
 
                 <li>
                     <Link to="#" onClick={toggleLanguage} title={t('changeLanguage')}>
-                        <LuLanguages size={20} t/>
+                        <LuLanguages size={20} />
                     </Link>
                 </li>
                 <li>

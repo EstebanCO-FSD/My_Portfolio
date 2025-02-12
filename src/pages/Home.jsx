@@ -8,17 +8,25 @@ import Footer from '../components/Footer';
 import '../assets/css/Home.css';
 
 function Home() {
-    const profileRef = useRef(null);
-    const educationRef = useRef(null);
-    const skillsRef = useRef(null);
+    let profileRef = useRef(null);
+    let educationRef = useRef(null);
+    let skillsRef = useRef(null);
+
+    const sections = [
+        { ref: profileRef, component: <Profile /> },
+        { ref: educationRef, component: <Education /> },
+        { ref: skillsRef, component: <Skills /> }
+    ];
 
     return (
         <div className="home-container">
             <Menu profileRef={profileRef} educationRef={educationRef} skillsRef={skillsRef} />
 
-            <div ref={profileRef}><Profile /></div>
-            <div ref={educationRef}><Education /></div>
-            <div ref={skillsRef}><Skills /></div>
+            {sections.map((section, index) => (
+                <div key={index} ref={section.ref}>
+                    {section.component}
+                </div>
+            ))}
 
             <Footer />
             <ScrollToTopButton />

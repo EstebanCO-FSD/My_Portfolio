@@ -1,0 +1,23 @@
+[
+    {
+        "type": "Titulaciones",
+        "items": [
+            { "name": "Ingeniería en Sistemas", "education_level": "profesional", "year": "(En formación)" },
+            { "name": "Tecnología en Desarrollo Web", "education_level": "tecnólogo", "year": "2023" },
+            { "name": "Tecnología en Desarrollo Web", "education_level": "técnico", "year": "2020" }
+        ]
+    },
+    {
+        "type": "Certificaciones",
+        "items": [
+            { "name": "Python for Data Science", "year": "2021", "link": "https://www.credly.com/badges/56609f09-ca05-45fb-b9f2-8484c004f32b?source=linked_in_profile" },
+            { "name": "Enterprise Design Thinking", "year": "2021", "link": "https://www.credly.com/badges/52d383d6-59fe-4392-827b-d08c21999702?source=linked_in_profile" },
+            { "name": "SOLID Principles: Introducing Software Architecture & Design", "year": "2021", "link": "https://drive.google.com/file/d/19qleodqVRXWb9xYkr0Se0QbbJws0MxBt/view?usp=drive_link" },
+            { "name": "MongoDB - The Complete Developer's Guide", "year": "2022", "link": "https://www.udemy.com/certificate/UC-d7b99cf8-4c67-4d23-bda4-59376b6d095f/" },
+            { "name": "SQL & PostgreSQL for Beginners: Become an SQL Expert", "year": "2022", "link": "https://www.udemy.com/certificate/UC-1d5a14da-dee2-4644-a687-3058d1611a7c/" },
+            { "name": "Serverless Framework Bootcamp: Node.js, AWS & Microservices", "year": "2022", "link": "https://www.udemy.com/certificate/UC-265287ff-efcb-4b69-8be6-ad1bb5081688/" },
+            { "name": "Master Microservices with Spring Boot and Spring Cloud", "year": "2022", "link": "https://www.udemy.com/certificate/UC-9dd32811-28e8-4d26-9fa0-04db3373e917/" },
+            { "name": "Azure DevOps Fundamentals for Beginners", "year": "2022", "link": "https://www.udemy.com/certificate/UC-a963b419-05dd-4c3d-81e7-a5ab77f9bf41/" }
+        ]
+    }
+]

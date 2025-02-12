@@ -7,3 +7,7 @@
     text-align: center;
     padding-top: 60px;
 }
+
+.home-container > div {
+    width: 100%;
+}
