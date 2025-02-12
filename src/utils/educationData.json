@@ -2,9 +2,21 @@
     {
         "type": "Titulaciones",
         "items": [
-            { "name": "Ingeniería en Sistemas", "education_level": "profesional", "year": "(En formación)" },
-            { "name": "Tecnología en Desarrollo Web", "education_level": "tecnólogo", "year": "2023" },
-            { "name": "Tecnología en Desarrollo Web", "education_level": "técnico", "year": "2020" }
+            { 
+                "name": { "es": "Ingeniería en Sistemas", "en": "Systems Engineering" }, 
+                "education_level": { "es": "profesional", "en": "professional" }, 
+                "year": { "es": "(En formación)", "en": "(In progress)" }
+            },
+            { 
+                "name": { "es": "Análisis y Desarrollo de Sistemas de Información", "en": "Analysis and Development of Information Systems" }, 
+                "education_level": { "es": "tecnólogo", "en": "technologist" }, 
+                "year": "2023" 
+            },
+            { 
+                "name": { "es": "Programación de Software", "en": "Software Programming" }, 
+                "education_level": { "es": "técnico", "en": "technician" }, 
+                "year": "2020" 
+            }
         ]
     },
     {

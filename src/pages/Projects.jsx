@@ -4,8 +4,8 @@ function Projects() {
     return (
         <div>
             <Menu />
-            <main className="pt-16 p-4">
-                <h1 className="text-3xl">Bienvenido a proyectos</h1>
+            <main>
+                <h1 style={{ textAlign: 'center', marginTop: '280px' }}>Bienvenido a proyectos</h1>
             </main>
         </div>
     )

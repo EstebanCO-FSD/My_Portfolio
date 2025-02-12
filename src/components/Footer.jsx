@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function Footer() {
+    let { t } = useTranslation();
     let [isLightMode, setIsLightMode] = useState(localStorage.getItem("theme") === "light");
 
     useEffect(() => {
@@ -22,7 +24,7 @@ function Footer() {
                 {isLightMode ? <img src="/logo-cap-b.png" alt="Logo" /> : <img src="/logo-cap-w.png" alt="Logo" />}
             </div>
 
-            <p style={{ fontSize: '12px' }}>Última actualización 📅 ( 10 de Feb 2025 )</p>
+            <p style={{ fontSize: '12px' }}>{t('last_update')} 📅 ( 10 de Feb 2025 )</p>
         </div>
     )
 }

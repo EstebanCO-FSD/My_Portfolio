@@ -7,7 +7,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import '../assets/css/Contact.css';
 
 function Contact() {
-    let { t,  } = useTranslation();
+    let { t } = useTranslation();
     let [isPopupOpen, setIsPopupOpen] = useState(false);
     let [isLightMode, setIsLightMode] = useState(localStorage.getItem("theme") === "light");
 
