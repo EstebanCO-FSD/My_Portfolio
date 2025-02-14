@@ -85,14 +85,14 @@ button {
 
 /* Estilos para el cambio de tema */
 .light-mode .popup-content {
-    background: #ffffff;
+    background: rgb(220 232 248);;
     color: black;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .light-mode .close-btn {
     color: black;
-    background-color: white;
+    background-color: rgb(220 232 248);;
 }
 
 .light-mode input, .light-mode textarea {
