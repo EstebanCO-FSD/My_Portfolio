@@ -71,7 +71,7 @@ const resources = {
             popup_success_message: 'Su correo ha sido enviado con éxito.',
             popup_error_message: 'El envío del correo ha fallado. Te invito a contactarme a través de LinkedIn.',
             popup_error_empty_fields: 'Por favor, completa todos los campos antes de continuar.',
-            last_update: 'Última actualización'
+            last_update: 'Última actualización 📅 ( 14 de Feb 2025 )'
         }
     },
     en: {
@@ -143,7 +143,7 @@ const resources = {
             popup_success_message: 'Your email has been sent successfully.',
             popup_error_message: 'The email has failed to be sent. Please contact me via LinkedIn.',
             popup_error_empty_fields: 'Please complete all fields before continuing.',
-            last_update: 'Last update'
+            last_update: 'Last update 📅 ( February 14, 2025 )'
         }
     }
 };
