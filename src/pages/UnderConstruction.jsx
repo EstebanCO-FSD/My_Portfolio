@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import workingImage from '../assets/img/working.png';
-import '../assets/css/UnderConstruction.css';
+import workingImage from '@assets/img/working.png';
+import '@assets/css/UnderConstruction.css';
 
 function UnderConstruction() {
     let { t } = useTranslation();
@@ -16,4 +16,4 @@ function UnderConstruction() {
     );
 }
 
-export default UnderConstruction
+export default UnderConstruction;

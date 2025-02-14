@@ -1,7 +1,7 @@
-import { useState } from "react";
-import educationData from "../utils/educationData";
+import React, { useState } from 'react';
+import educationData from '../utils/educationData';
 import { useTranslation } from 'react-i18next';
-import "../assets/css/Education.css";
+import '@assets/css/Education.css';
 
 function Education() {
     let { t, i18n } = useTranslation();
@@ -59,4 +59,4 @@ function Education() {
     );
 }
 
-export default Education
+export default Education;

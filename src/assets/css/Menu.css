@@ -78,7 +78,7 @@
 
 /* Estilos para el cambio de tema */
 body.light-mode {
-    --background-color: white;
+    --background-color: rgb(220 232 248);
     color: black;
 }
 
@@ -89,7 +89,7 @@ body.light-mode .menu-bar {
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(220 232 248);
     color: black;
     display: flex;
     align-items: center;

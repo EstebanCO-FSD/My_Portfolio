@@ -1,11 +1,11 @@
-import { useRef } from 'react';
-import Menu from '../components/Menu';
-import ScrollToTopButton from '../components/ScrollToTopButton';
-import Profile from '../components/Profile';
-import Education from '../components/Education';
-import Skills from '../components/Skills';
-import Footer from '../components/Footer';
-import '../assets/css/Home.css';
+import React, { useRef } from 'react';
+import Menu from '@components/Menu';
+import Profile from '@components/Profile';
+import Education from '@components/Education';
+import Skills from '@components/Skills';
+import Footer from '@components/Footer';
+import ScrollToTopButton from '@components/ScrollToTopButton';
+import '@assets/css/Home.css';
 
 function Home() {
     let profileRef = useRef(null);
@@ -34,4 +34,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Home;

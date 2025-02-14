@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "name": "Proyecto 1",
+        "description": { 
+            "es": "Descripción breve del proyecto 1.", 
+            "en": "Brief description of the project 1." 
+        },
+        "image": "project_id_1",
+        "url": "https://ejemplo.com/pro",
+        "technologies": ["React", "CSS", "JavaScript"]
+    }
+]

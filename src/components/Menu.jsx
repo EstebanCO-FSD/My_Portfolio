@@ -1,10 +1,10 @@
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { LuLanguages, LuSun, LuMoon } from 'react-icons/lu';
-import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import '../assets/css/Menu.css';
+import '@assets/css/Menu.css';
 
-export default function Menu({ profileRef, educationRef, skillsRef }) {
+function Menu({ profileRef, educationRef, skillsRef }) {
     let location = useLocation();
     let currentPath = location.pathname;
     let { t, i18n } = useTranslation();
@@ -82,3 +82,5 @@ export default function Menu({ profileRef, educationRef, skillsRef }) {
         </nav>
     );
 }
+
+export default Menu;

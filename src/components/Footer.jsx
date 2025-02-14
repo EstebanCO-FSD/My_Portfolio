@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 function Footer() {
@@ -13,7 +13,7 @@ function Footer() {
     }, []);  
 
     return (
-        <div style={{width: '100%'}}>
+        <div style={{ width: '100%', textAlign: 'center' }}>
             <span style={{ 
                 display: 'inline-block', width: '95%', height: '1px', 
                 background: isLightMode ? 'rgba(0, 0, 0, 0.6)' : 'rgba(255, 255, 255, 0.6)', 
@@ -29,4 +29,4 @@ function Footer() {
     )
 }
 
-export default Footer
+export default Footer;

@@ -1,6 +1,6 @@
-import Carousel from '../components/Carousel';
+import Carousel from '@components/Carousel';
 import { useTranslation, Trans } from 'react-i18next';
-import '../assets/css/Skills.css';
+import '@assets/css/Skills.css';
 
 function Skills() {
     let { t } = useTranslation();
@@ -32,4 +32,4 @@ function Skills() {
     );
 }
 
-export default Skills
+export default Skills;

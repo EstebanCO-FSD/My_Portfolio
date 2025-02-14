@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import Menu from '../components/Menu';
+import React, { useState, useEffect } from 'react';
 import { FaLinkedin } from 'react-icons/fa';
 import { RiMailSendLine } from 'react-icons/ri';
-import PopupForm from '../components/PopupForm';
 import { useTranslation, Trans } from 'react-i18next';
-import '../assets/css/Contact.css';
+import Menu from '@components/Menu';
+import PopupForm from '@components/PopupForm';
+import '@assets/css/Contact.css';
 
 function Contact() {
     let { t } = useTranslation();

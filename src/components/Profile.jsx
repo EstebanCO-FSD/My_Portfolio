@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { useTranslation, Trans } from 'react-i18next';
-import imgProfile from '../assets/img/profile.png';
-import '../assets/css/Profile.css';
+import imgProfile from '@assets/img/profile.png';
+import '@assets/css/Profile.css';
 
 function Profile() {
     let { t } = useTranslation();

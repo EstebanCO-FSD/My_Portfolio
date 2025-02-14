@@ -1,74 +1,103 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import '../assets/css/PopupForm.css';
+import emailjs from '@emailjs/browser';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import '@assets/css/PopupForm.css';
 
 function PopupForm({ closePopup }) {
     let { t } = useTranslation();
 
-    const [message, setMessage] = useState('');
+    // EmailJs Ids and Key
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+
+    const [isLoading, setIsLoading] = useState(false);
     const maxChars = 500;
 
-    let [isLightMode, setIsLightMode] = useState(localStorage.getItem("theme") === "light");
-
     const handleChange = (e) => {
-        if (e.target.value.length <= maxChars) {
-            setMessage(e.target.value);
-        }
+        const { name, value } = e.target;
+        if (name === 'message' && value.length > maxChars) return;
+        setFormData({ ...formData, [name]: value });
     };
 
-    useEffect(() => {
-        const handleThemeChange = () => {
-            const newTheme = localStorage.getItem("theme");
-            setIsLightMode(newTheme === "light");
-        };
-    
-        window.addEventListener("themeChange", handleThemeChange);
-    
-        if (isLightMode) {
-            document.body.classList.add('light-mode');
-        } else {
-            document.body.classList.remove('light-mode');
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+
+        if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+            toast.info(t('popup_error_empty_fields'));
+            setIsLoading(false);
+            return;
         }
-    
-        return () => { window.removeEventListener("themeChange", handleThemeChange); };
-    }, [isLightMode]);
-    
+
+        try {
+            await emailjs.send(
+                serviceId,
+                templateId,
+                formData,
+                publicKey
+            );
+            toast.success(t('popup_success_message'));
+            setFormData({ name: '', email: '', subject: '', message: '' });
+        } catch (error) {
+            console.error('Email sending error:', error);
+            toast.error(t('popup_error_message'));
+        }
+
+        setIsLoading(false);
+    };
+
     return (
         <div className="popup-overlay">
+
+            <ToastContainer />
+
             <div className="popup-content">
                 <button className="close-btn" onClick={closePopup}>✖</button>
                 <h2>{t('popup_form_h2')}</h2>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="form-row">
                         <div className="form-group">
                             <label>{t('popup_label_name')}</label>
-                            <input type="text" placeholder={t('popup_placeholder_name')} required />
+                            <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder={t('popup_placeholder_name')} required />
                         </div>
                         <div className="form-group">
                             <label>{t('popup_label_email')}</label>
-                            <input type="email" placeholder={t('popup_placeholder_email')} required />
+                            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder={t('popup_placeholder_email')} required />
                         </div>
                     </div>
 
                     <div className="form-group">
                         <label>{t('popup_label_subject')}</label>
-                        <input type="text" placeholder={t('popup_label_subject')} required />
+                        <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder={t('popup_label_subject')} required />
                     </div>
 
                     <div className="form-group">
                         <label>{t('popup_label_message')}</label>
                         <textarea
+                            name="message"
                             placeholder={t('popup_placeholder_message')}
-                            value={message}
+                            value={formData.message}
                             onChange={handleChange}
                             maxLength={maxChars}
                             required
                         ></textarea>
-                        <p className="char-count">{message.length} / {maxChars} {t('popup_character_limit')}</p>
+                        <p className="char-count">{formData.message.length} / {maxChars} {t('popup_character_limit')}</p>
                     </div>
 
                     <div className="form-footer">
-                        <button type="submit">{t('popup_btn_send')}</button>
+                        <button type="submit" disabled={isLoading}>
+                            {isLoading ? t('popup_sending') : t('popup_btn_send')}
+                        </button>
                     </div>
                 </form>
             </div>
@@ -76,4 +105,4 @@ function PopupForm({ closePopup }) {
     );
 }
 
-export default PopupForm
+export default PopupForm;

@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LuArrowUp } from 'react-icons/lu';
-import '../assets/css/Menu.css';
+import '@assets/css/Menu.css';
 
-export default function ScrollToTopButton() {
+function ScrollToTopButton() {
     let [isLightMode, setIsLightMode] = useState(localStorage.getItem("theme") === "light");
     let [isVisible, setIsVisible] = useState(false);
 
@@ -34,3 +34,5 @@ export default function ScrollToTopButton() {
         )
     );
 }
+
+export default ScrollToTopButton;

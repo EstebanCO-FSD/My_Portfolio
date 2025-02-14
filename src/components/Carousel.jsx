@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import Slider from "react-infinite-logo-slider";
-import "../assets/css/Carousel.css";
+import React, { useEffect, useState } from 'react';
+import Slider from 'react-infinite-logo-slider';
+import '@assets/css/Carousel.css';
 
 const skills = {
     frontend: ["html", "css", "sapui5", "react", "javascript"],
@@ -13,7 +13,7 @@ function Carousel({ category }) {
 
     useEffect(() => {
         Promise.all(
-            items.map(item => import(`../assets/img/${category}/${item}.png`))
+            items.map(item => import(`@assets/img/${category}/${item}.png`))
         ).then(setImages);
     }, [category]);
 
