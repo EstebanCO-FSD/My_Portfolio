@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Menu from '@components/Menu';
 import Footer from '@components/Footer';
 import ScrollToTopButton from '@components/ScrollToTopButton';
-import projectsData from '@utils/projectsData';
+import projectsData from '@utils/data/projectsData';
 import '@assets/css/Projects.css';
 
 function Projects() {

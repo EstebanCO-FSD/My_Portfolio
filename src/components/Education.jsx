@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import educationData from '../utils/educationData';
 import { useTranslation } from 'react-i18next';
+import educationData from '@utils/data/educationData';
 import '@assets/css/Education.css';
 
 function Education() {

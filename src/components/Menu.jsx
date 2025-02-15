@@ -23,6 +23,7 @@ function Menu({ profileRef, educationRef, skillsRef }) {
         if (isLocalStorageAvailable) {
             return localStorage.getItem("language") || "es";
         }
+        
         return "es";
     };
 
@@ -31,12 +32,17 @@ function Menu({ profileRef, educationRef, skillsRef }) {
     };
 
     const [isLightMode, setIsLightMode] = useState(getInitialTheme);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [language, setLanguage] = useState(getInitialLanguage);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
-        i18n.changeLanguage(language);
-    }, [language, i18n]);
+        const storedLanguage = localStorage.getItem("language") || "es";
+        if (storedLanguage !== language) {
+            setLanguage(storedLanguage);
+            i18n.changeLanguage(storedLanguage);
+        }
+    }, []);
+    
 
     useEffect(() => {
         if (isLightMode) {
@@ -57,9 +63,10 @@ function Menu({ profileRef, educationRef, skillsRef }) {
         const newLanguage = language === "es" ? "en" : "es";
         setLanguage(newLanguage);
         i18n.changeLanguage(newLanguage);
-        if (isLocalStorageAvailable) {
-            localStorage.setItem("language", newLanguage);
-        }
+    };    
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
     };
 
     const scrollToSection = (ref, event) => {
@@ -68,10 +75,6 @@ function Menu({ profileRef, educationRef, skillsRef }) {
             ref.current.scrollIntoView({ behavior: 'smooth' });
         }
         setIsMenuOpen(false);
-    };
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
     };
 
     return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import emailjs from '@emailjs/browser';
 import { toast, ToastContainer } from 'react-toastify';
+import emailjs from '@emailjs/browser';
 import 'react-toastify/dist/ReactToastify.css';
 import '@assets/css/PopupForm.css';
 
