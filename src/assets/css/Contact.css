@@ -55,4 +55,11 @@
         flex-direction: row;
         padding: 8%;
     }
+
+    .contact-btn {
+        height: 6em;
+        padding: 1.5em 0 1.5em 1.5em;
+        will-change: filter;
+        transition: filter 300ms;
+    }    
 }
