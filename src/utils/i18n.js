@@ -1,6 +1,10 @@
 import i18n, { changeLanguage } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+const getInitialLanguage = () => {
+    return localStorage.getItem("language") || "es";
+};
+
 const resources = {
     es: {
         translation: {
@@ -150,7 +154,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
     resources,
-    lng: 'es', // Idioma inicial
+    lng: getInitialLanguage(), // Idioma inicial
     fallbackLng: 'es',
     interpolation: { escapeValue: false }
 });

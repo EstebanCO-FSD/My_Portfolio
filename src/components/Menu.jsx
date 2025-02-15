@@ -15,13 +15,14 @@ function Menu({ profileRef, educationRef, skillsRef }) {
 
     const [isLightMode, setIsLightMode] = useState(getInitialTheme);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [language, setLanguage] = useState(localStorage.getItem("language") || "es"); // Estado del idioma
 
     useEffect(() => {
         const savedLanguage = localStorage.getItem("language") || "es";
         if (i18n.language !== savedLanguage) {
             i18n.changeLanguage(savedLanguage);
         }
-    }, [i18n]);
+    }, []);
 
     useEffect(() => {
         if (isLightMode) {
@@ -40,6 +41,7 @@ function Menu({ profileRef, educationRef, skillsRef }) {
 
     const toggleLanguage = () => {
         const newLanguage = i18n.language === 'es' ? 'en' : 'es';
+        setLanguage(newLanguage);
         i18n.changeLanguage(newLanguage);
         localStorage.setItem('language', newLanguage);
     };
