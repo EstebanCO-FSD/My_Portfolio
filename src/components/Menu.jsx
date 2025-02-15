@@ -17,6 +17,13 @@ function Menu({ profileRef, educationRef, skillsRef }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
+        const savedLanguage = localStorage.getItem("language") || "es";
+        if (i18n.language !== savedLanguage) {
+            i18n.changeLanguage(savedLanguage);
+        }
+    }, [i18n]);
+
+    useEffect(() => {
         if (isLightMode) {
             document.body.classList.add('light-mode');
         } else {
