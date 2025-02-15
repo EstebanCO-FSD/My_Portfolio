@@ -9,20 +9,34 @@ function Menu({ profileRef, educationRef, skillsRef }) {
     let currentPath = location.pathname;
     let { t, i18n } = useTranslation();
 
+    const isLocalStorageAvailable = (() => {
+        try {
+            localStorage.setItem("__test", "test");
+            localStorage.removeItem("__test");
+            return true;
+        } catch (e) {
+            return false;
+        }
+    })();
+
+    const getInitialLanguage = () => {
+        if (isLocalStorageAvailable) {
+            return localStorage.getItem("language") || "es";
+        }
+        return "es";
+    };
+
     const getInitialTheme = () => {
         return localStorage.getItem('theme') === 'light';
     };
 
     const [isLightMode, setIsLightMode] = useState(getInitialTheme);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [language, setLanguage] = useState(localStorage.getItem("language") || "es"); // Estado del idioma
+    const [language, setLanguage] = useState(getInitialLanguage);
 
     useEffect(() => {
-        const savedLanguage = localStorage.getItem("language") || "es";
-        if (i18n.language !== savedLanguage) {
-            i18n.changeLanguage(savedLanguage);
-        }
-    }, []);
+        i18n.changeLanguage(language);
+    }, [language, i18n]);
 
     useEffect(() => {
         if (isLightMode) {
@@ -40,10 +54,12 @@ function Menu({ profileRef, educationRef, skillsRef }) {
     };
 
     const toggleLanguage = () => {
-        const newLanguage = i18n.language === 'es' ? 'en' : 'es';
+        const newLanguage = language === "es" ? "en" : "es";
         setLanguage(newLanguage);
         i18n.changeLanguage(newLanguage);
-        localStorage.setItem('language', newLanguage);
+        if (isLocalStorageAvailable) {
+            localStorage.setItem("language", newLanguage);
+        }
     };
 
     const scrollToSection = (ref, event) => {
