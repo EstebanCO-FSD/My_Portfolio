@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { LuLanguages, LuSun, LuMoon } from 'react-icons/lu';
 import { useTranslation } from 'react-i18next';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '@assets/css/Menu.css';
+import es from '@utils/languages/es';
+import en from '@utils/languages/en';
 
 function Menu({ profileRef, educationRef, skillsRef }) {
     let location = useLocation();
@@ -63,6 +67,10 @@ function Menu({ profileRef, educationRef, skillsRef }) {
         const newLanguage = language === "es" ? "en" : "es";
         setLanguage(newLanguage);
         i18n.changeLanguage(newLanguage);
+        toast.info(es.changeLanguageTooltip + "\n\n" + en.changeLanguageTooltip, { 
+            theme: isLightMode ? 'light' : 'dark',
+            style: { fontSize: '12px', whiteSpace: 'pre-line' }
+        });
     };    
 
     const toggleMenu = () => {
@@ -84,6 +92,8 @@ function Menu({ profileRef, educationRef, skillsRef }) {
                     {isLightMode ? <img src="/logo-cap-b.png" alt="Logo" /> : <img src="/logo-cap-w.png" alt="Logo" />}
                 </Link>
             </div>
+
+            <ToastContainer />
 
             <button className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
                 <span></span>

@@ -8,6 +8,12 @@ import '@assets/css/PopupForm.css';
 function PopupForm({ closePopup }) {
     let { t } = useTranslation();
 
+    const getInitialTheme = () => {
+        return localStorage.getItem('theme') === 'light';
+    };
+
+    const [isLightMode, setIsLightMode] = useState(getInitialTheme);
+
     // EmailJs Ids and Key
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -34,7 +40,7 @@ function PopupForm({ closePopup }) {
         setIsLoading(true);
 
         if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
-            toast.info(t('popup_error_empty_fields'));
+            toast.info(t('popup_error_empty_fields'), { theme: isLightMode ? 'light' : 'dark' });
             setIsLoading(false);
             return;
         }
@@ -46,11 +52,12 @@ function PopupForm({ closePopup }) {
                 formData,
                 publicKey
             );
-            toast.success(t('popup_success_message'));
+            
+            toast.success(t('popup_success_message'), { theme: isLightMode ? 'light' : 'dark' });
             setFormData({ name: '', email: '', subject: '', message: '' });
         } catch (error) {
             console.error('Email sending error:', error);
-            toast.error(t('popup_error_message'));
+            toast.error(t('popup_error_message'), { theme: isLightMode ? 'light' : 'dark' });
         }
 
         setIsLoading(false);

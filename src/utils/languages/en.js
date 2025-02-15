@@ -6,6 +6,7 @@ const en_i18n = {
     projects: 'Projects',
     contact: 'Contact',
     changeLanguage: 'Change language',
+    changeLanguageTooltip: 'EN - If the "Change language" option doesn\'t work on your device, try opening the site in incognito mode.',
     changeTheme: 'Change theme',
     profile_text_role: 'Full-Stack Developer | BTP Consultant',
     profile_text_about: 'About me',

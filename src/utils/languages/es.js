@@ -1,3 +1,5 @@
+import { changeLanguage } from "i18next";
+
 const es_i18n = {
     profile: 'Perfil',
     education: 'Educación',
@@ -6,6 +8,7 @@ const es_i18n = {
     projects: 'Proyectos',
     contact: 'Contacto',
     changeLanguage: 'Cambiar idioma',
+    changeLanguageTooltip: 'ES - Si la opción "Cambiar idioma" no funciona en tu dispositivo, prueba abrir el sitio en modo incógnito.',
     changeTheme: 'Cambiar tema',
     profile_text_role: 'Desarrollador Full-Stack | Consultor BTP',
     profile_text_about: 'Acerca de mí',
