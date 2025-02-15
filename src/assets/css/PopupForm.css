@@ -50,7 +50,8 @@ form {
     flex-direction: column;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -85,17 +86,20 @@ button {
 
 /* Estilos para el cambio de tema */
 .light-mode .popup-content {
-    background: rgb(220 232 248);;
+    background: rgb(220 232 248);
+    ;
     color: black;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .light-mode .close-btn {
     color: black;
-    background-color: rgb(220 232 248);;
+    background-color: rgb(220 232 248);
+    ;
 }
 
-.light-mode input, .light-mode textarea {
+.light-mode input,
+.light-mode textarea {
     border: 1px solid #ccc;
     background-color: #f0f0f0;
     color: black;

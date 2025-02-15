@@ -17,10 +17,10 @@ function Contact() {
 
     useEffect(() => {
         const handleThemeChange = () => setIsLightMode(localStorage.getItem("theme") === "light");
-    
+
         window.addEventListener("themeChange", handleThemeChange);
         return () => window.removeEventListener("themeChange", handleThemeChange);
-    }, []);     
+    }, []);
 
     return (
         <div>

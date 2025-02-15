@@ -7,17 +7,18 @@ function Footer() {
 
     useEffect(() => {
         const handleThemeChange = () => setIsLightMode(localStorage.getItem("theme") === "light");
-    
+
         window.addEventListener("themeChange", handleThemeChange);
         return () => window.removeEventListener("themeChange", handleThemeChange);
-    }, []);  
+    }, []);
 
     return (
         <div style={{ width: '100%', textAlign: 'center' }}>
-            <span style={{ 
-                display: 'inline-block', width: '95%', height: '1px', 
-                background: isLightMode ? 'rgba(0, 0, 0, 0.6)' : 'rgba(255, 255, 255, 0.6)', 
-                margin: '0 0 5px 0', borderRadius: '1px' }}>
+            <span style={{
+                display: 'inline-block', width: '95%', height: '1px',
+                background: isLightMode ? 'rgba(0, 0, 0, 0.6)' : 'rgba(255, 255, 255, 0.6)',
+                margin: '0 0 5px 0', borderRadius: '1px'
+            }}>
             </span>
 
             <div className="menu-logo">

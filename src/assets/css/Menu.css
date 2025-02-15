@@ -1,11 +1,10 @@
-/* Estilos para el MenuBar */
+/* Estilos generales del menú */
 .menu-bar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     box-sizing: border-box;
-    overflow: hidden;
     background-color: rgb(36, 36, 36);
     color: white;
     display: flex;
@@ -29,6 +28,7 @@
     padding: 0;
     margin: 0;
     flex-wrap: wrap;
+    background-color: rgb(36, 36, 36);
 }
 
 .menu-nav a {
@@ -49,6 +49,7 @@
     border-radius: 1px;
 }
 
+/* Botón scroll-to-top */
 .scroll-to-top {
     position: fixed;
     bottom: 20px;
@@ -64,41 +65,29 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease-in-out;
-    will-change: filter;
-    transition: filter 300ms;
+    transition: opacity 0.3s ease-in-out, filter 300ms;
     z-index: 2;
 }
 
 .scroll-to-top:hover {
     background-color: rgba(0, 84, 220, 0.938);
-    filter: drop-shadow(0 0 10px rgb(17, 21, 92))
-            drop-shadow(0 0 20px rgba(5, 11, 120, 0.5));
+    filter: drop-shadow(0 0 10px rgb(17, 21, 92)) drop-shadow(0 0 20px rgba(5, 11, 120, 0.5));
 }
 
-/* Estilos para el cambio de tema */
+/* Estilos para el modo claro */
 body.light-mode {
-    --background-color: rgb(220 232 248);
+    --background-color: rgb(220, 232, 248);
     color: black;
 }
 
 body.light-mode .menu-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-    background-color: rgb(220 232 248);
+    background-color: rgb(220, 232, 248);
     color: black;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    padding-top: 5px;
-    padding-bottom: 5px;
     box-shadow: 0px 4px 6px #688ecab9;
-    z-index: 50;
+}
+
+body.light-mode .menu-nav {
+    background-color: rgb(220, 232, 248);
 }
 
 body.light-mode .menu-nav a {
@@ -110,51 +99,104 @@ body.light-mode .menu-nav a:hover {
 }
 
 body.light-mode .menu-separator {
-    display: inline-block;
-    width: 2px;
-    height: 100%;
     background: rgba(0, 0, 0, 0.6);
-    margin: 0 5px;
-    border-radius: 1px;
 }
 
-.light-mode .scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+body.light-mode .scroll-to-top {
     background-color: #1e293b;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
+}
+
+body.light-mode .menu-toggle {
+    background: transparent;
+}
+
+body.light-mode .menu-toggle span {
+    background: #1e293b;
+}
+
+/* Estilos para el menú hamburguesa */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 35px;
+    background: transparent;
+    height: 35px;
+    border: none;
+    outline: none !important;
+    border-radius: 20px;
     cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease-in-out;
-    will-change: filter;
-    transition: filter 300ms;
+    position: relative;
 }
 
-.light-mode .scroll-to-top:hover {
-    background-color: rgba(0, 84, 220, 0.938);
-    filter: drop-shadow(0 0 10px rgb(17, 21, 92))
-            drop-shadow(0 0 20px rgba(5, 11, 120, 0.5));
+.menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    position: absolute;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
 }
 
-/* Estilos responsivos */
+.menu-toggle span:nth-child(1) {
+    top: 8px;
+}
+
+.menu-toggle span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-toggle span:nth-child(3) {
+    bottom: 8px;
+}
+
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* Menú desplegable en responsive */
 @media (max-width: 768px) {
-    .menu-bar {
-        flex-direction: column;
-        align-items: center;
-        padding: 12px;
+    .menu-toggle {
+        display: flex;
     }
 
     .menu-nav {
+        display: none;
         flex-direction: column;
         align-items: center;
-        gap: 16px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 12px;
+        z-index: 99;
+        box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
+    }
+
+    .menu-nav.open {
+        display: flex;
+    }
+
+    .menu-nav a {
+        color: white;
+    }
+
+    body.light-mode .menu-nav {
+        background-color: rgb(220, 232, 248);
+        box-shadow: 0px 4px 6px #688ecab9;
+    }
+
+    body.light-mode .menu-nav a {
+        color: black;
     }
 }

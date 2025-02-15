@@ -27,17 +27,17 @@
 
 .profile-info h1 {
     font-size: 2rem;
-    margin: 15px;
+    margin: 15px 0 15px 15px;
 }
 
 .profile-info p {
-    margin: 15px;
+    margin: 15px 0 15px 15px;
 }
 
 .profile-links {
     display: flex;
     gap: 15px;
-    margin: 15px;
+    margin: 15px 0 15px 15px;
 }
 
 .profile-links .icon {
@@ -61,4 +61,16 @@
 .profile-description {
     text-align: left;
     margin: 50px 150px 0 150px;
+}
+
+@media (max-width: 768px) {
+    .profile-subcontainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-description {
+        text-align: left;
+        margin: 50px 50px 0 50px;
+    }
 }

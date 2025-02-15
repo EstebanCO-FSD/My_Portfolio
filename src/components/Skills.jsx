@@ -10,7 +10,7 @@ function Skills() {
             <h2>{t('skills_title')}</h2>
 
             <div className="skills-section">
-                <div className="left-text">                
+                <div className="left-text">
                     <h3>Back-End</h3>
                     <p><Trans i18nKey="skills_text_backend" /></p>
                 </div>

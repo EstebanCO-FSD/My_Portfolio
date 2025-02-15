@@ -18,7 +18,7 @@ function Projects() {
                     return { [id]: (await import(`@assets/img/projects/${image}.png`)).default };
                 } catch (error) {
                     console.error(`Error al cargar la imagen ${image}:`, error);
-                    return {}; 
+                    return {};
                 }
             }));
             setImages(Object.assign({}, ...loadedImages));
@@ -32,7 +32,7 @@ function Projects() {
                 <h2>{t('projects_title')}</h2>
                 <p>{t('projects_text')}</p>
             </div>
-            
+
             <div className="projects-container">
                 {projectsData.map(project => (
                     <div key={project.id} className="project-card">
@@ -51,7 +51,7 @@ function Projects() {
                         </div>
                         <div className="project-info">
                             <h3>{project.name}</h3>
-                            <p>{ project.description[i18n.language] }</p>
+                            <p>{project.description[i18n.language]}</p>
                         </div>
                     </div>
                 ))}

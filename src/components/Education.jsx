@@ -18,12 +18,12 @@ function Education() {
                 <div className="timeline-left">
                     <h3>{t('education_qualifications')}</h3>
 
-                    <div className="snake-timeline">
+                    <div className="lineal-timeline">
                         {educationData.find(section => section.type === "Titulaciones")?.items.map((item, idx) => (
                             <div key={idx} className={`timeline-item ${idx % 2 === 0 ? 'right' : 'left'}`}>
-                                <span className="name">{ item.name[i18n.language] }</span>
-                                <span className="education_level">{ item.education_level[i18n.language] }</span>
-                                <span className="year">{ typeof item.year === "object" ? item.year[i18n.language] : item.year }</span>
+                                <span className="name">{item.name[i18n.language]}</span>
+                                <span className="education_level">{item.education_level[i18n.language]}</span>
+                                <span className="year">{typeof item.year === "object" ? item.year[i18n.language] : item.year}</span>
                             </div>
                         ))}
                     </div>
@@ -32,11 +32,11 @@ function Education() {
                 <div className="timeline-right">
                     <h3>{t('education_certifications')}</h3>
 
-                    <div className="snake-timeline">
+                    <div className="lineal-timeline">
                         {visibleCertifications.map((item, idx) => (
                             <div key={idx} className={`timeline-item ${idx % 2 === 0 ? 'right' : 'left'}`}>
-                                <span className="name">{ item.name }</span>
-                                <span className="year">{ item.year }</span>
+                                <span className="name">{item.name}</span>
+                                <span className="year">{item.year}</span>
                                 {item.link && (
                                     <a href={item.link} target="_blank" rel="noopener noreferrer" className="cert-button">
                                         {t('education_see_certification')}

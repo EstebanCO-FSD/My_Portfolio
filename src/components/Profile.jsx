@@ -13,20 +13,20 @@ function Profile() {
             const newTheme = localStorage.getItem("theme");
             setIsLightMode(newTheme === "light");
         };
-    
+
         window.addEventListener("themeChange", handleThemeChange);
-    
+
         if (isLightMode) {
             document.body.classList.add('light-mode');
         } else {
             document.body.classList.remove('light-mode');
         }
-    
+
         return () => { window.removeEventListener("themeChange", handleThemeChange); };
     }, [isLightMode]);
-    
+
     return (
-        <div className="profile-container">        
+        <div className="profile-container">
             <div className="profile-subcontainer">
                 <div className="profile-image">
                     <img src={imgProfile} alt="Profile" />
