@@ -9,5 +9,16 @@
         "image": "project_id_1",
         "url": "https://estebanco-fsd.github.io/JS_Calculator/",
         "technologies": ["HTML", "JavaScript", "CSS"]
+    },
+    {
+        "id": 2,
+        "name": "JS Public Apis",
+        "description": {
+            "es": "Consulta y prueba APIs públicas en una interfaz rápida e intuitiva", 
+            "en": "Query and test public APIs in a fast and intuitive interface"
+        },
+        "image": "project_id_2",
+        "url": "https://estebanco-fsd.github.io/JS_Public_Apis/",
+        "technologies": ["HTML", "JavaScript", "CSS", "Bootstrap"]
     }
 ]
