@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { LuLanguages, LuSun, LuMoon } from 'react-icons/lu';
 import { useTranslation } from 'react-i18next';
 import { toast, ToastContainer } from 'react-toastify';
+import TextCarousel from './TextCarousel';
 import 'react-toastify/dist/ReactToastify.css';
 import '@assets/css/Menu.css';
 import es from '@utils/languages/es';
@@ -86,48 +87,52 @@ function Menu({ profileRef, educationRef, skillsRef }) {
     };
 
     return (
-        <nav className="menu-bar">
-            <div className="menu-logo">
-                <Link to="/">
-                    {isLightMode ? <img src="/logo-cap-b.png" alt="Logo" /> : <img src="/logo-cap-w.png" alt="Logo" />}
-                </Link>
-            </div>
-
+        <>
             <ToastContainer />
-
-            <button className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <ul className={`menu-nav ${isMenuOpen ? 'open' : ''}`}>
-                {currentPath !== "/Projects" && currentPath !== "/Contact" && (
-                    <>
-                        <li><a href="#" onClick={(e) => scrollToSection(profileRef, e)}>{t('profile')}</a></li>
-                        <li><a href="#" onClick={(e) => scrollToSection(educationRef, e)}>{t('education')}</a></li>
-                        <li><a href="#" onClick={(e) => scrollToSection(skillsRef, e)}>{t('skills')}</a></li>
-                        <li><span className="menu-separator"></span></li>
-                    </>
-                )}
-
-                {currentPath !== "/" && <li><Link to="/">{t('home')}</Link></li>}
-                {currentPath !== "/Projects" && <li><Link to="/Projects">{t('projects')}</Link></li>}
-                {currentPath !== "/Contact" && <li><Link to="/Contact">{t('contact')}</Link></li>}
-
-                <li><span className="menu-separator"></span></li>
-                <li>
-                    <Link to="#" onClick={toggleLanguage} title={t('changeLanguage')}>
-                        <LuLanguages size={20} />
+            
+            <nav className="menu-bar">
+                <div className="menu-logo">
+                    <Link to="/">
+                        {isLightMode ? <img src="/logo-cap-b.png" alt="Logo" /> : <img src="/logo-cap-w.png" alt="Logo" />}
                     </Link>
-                </li>
-                <li>
-                    <Link to="#" onClick={toggleTheme} title={t('changeTheme')}>
-                        {isLightMode ? <LuSun size={20} /> : <LuMoon size={20} />}
-                    </Link>
-                </li>
-            </ul>
-        </nav>
+                </div>
+
+                <TextCarousel />
+
+                <button className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul className={`menu-nav ${isMenuOpen ? 'open' : ''}`}>
+                    {currentPath !== "/Projects" && currentPath !== "/Contact" && (
+                        <>
+                            <li><a href="#" onClick={(e) => scrollToSection(profileRef, e)}>{t('profile')}</a></li>
+                            <li><a href="#" onClick={(e) => scrollToSection(educationRef, e)}>{t('education')}</a></li>
+                            <li><a href="#" onClick={(e) => scrollToSection(skillsRef, e)}>{t('skills')}</a></li>
+                            <li><span className="menu-separator"></span></li>
+                        </>
+                    )}
+
+                    {currentPath !== "/" && <li><Link to="/">{t('home')}</Link></li>}
+                    {currentPath !== "/Projects" && <li><Link to="/Projects">{t('projects')}</Link></li>}
+                    {currentPath !== "/Contact" && <li><Link to="/Contact">{t('contact')}</Link></li>}
+
+                    <li><span className="menu-separator"></span></li>
+                    <li>
+                        <Link to="#" onClick={toggleLanguage} title={t('changeLanguage')}>
+                            <LuLanguages size={20} />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="#" onClick={toggleTheme} title={t('changeTheme')}>
+                            {isLightMode ? <LuSun size={20} /> : <LuMoon size={20} />}
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
+        </>
     );
 }
 

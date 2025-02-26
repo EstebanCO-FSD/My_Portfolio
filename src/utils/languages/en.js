@@ -67,7 +67,8 @@ const en_i18n = {
     popup_success_message: 'Your email has been sent successfully.',
     popup_error_message: 'The email has failed to be sent. Please contact me via LinkedIn.',
     popup_error_empty_fields: 'Please complete all fields before continuing.',
-    last_update: 'Last update 📅 ( February 15, 2025 )'
+    text_carousel: '•· Hi, I\'m Esteban. Welcome to my portfolio! :) ·•· Explore my projects and discover what I can do. ·',
+    last_update: 'Last update 📅 ( February 25, 2025 )'
 }
 
 export default en_i18n;

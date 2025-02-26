@@ -69,7 +69,8 @@ const es_i18n = {
     popup_success_message: 'Su correo ha sido enviado con éxito.',
     popup_error_message: 'El envío del correo ha fallado. Te invito a contactarme a través de LinkedIn.',
     popup_error_empty_fields: 'Por favor, completa todos los campos antes de continuar.',
-    last_update: 'Última actualización 📅 ( 15 de Feb 2025 )'
+    text_carousel: '•· Hola, soy Esteban. ¡Bienvenido/a a mi portafolio! :) ·•· Explora mis proyectos y descubre lo que puedo hacer. ·',
+    last_update: 'Última actualización 📅 ( 25 de Feb 2025 )'
 };
 
 export default es_i18n;
